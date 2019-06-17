@@ -17,7 +17,16 @@ usage()
 }
 
 if [ $# -gt 0 ]; then
-    echo "Your command line contains $# arguments"
+    case $1 in
+        -a | --append  ) shift
+                         python app.py append $1
+                         ;;
+
+        list            ) shift
+                         python app.py list $1
+
+        list-all        ) shift
+                         python app.py list-all $1
 else
     usage
 fi
