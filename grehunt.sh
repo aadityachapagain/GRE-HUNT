@@ -16,6 +16,14 @@ usage()
 
 }
 
+wrong_command()
+{
+    echo " Unknown options !
+            
+            provide --help or -h to see command usage
+            "
+}
+
 if [ $# -gt 0 ]; then
     case $1 in
         -a | --append )  shift
@@ -28,6 +36,13 @@ if [ $# -gt 0 ]; then
 
         list-all )       shift
                          python app.py list-all $1
+                         ;;
+
+        --help | -h )    usage
+                         ;;
+        * )              wrong_command
+                         ;;
+                         
     esac
 else
     usage
