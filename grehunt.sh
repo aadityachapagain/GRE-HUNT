@@ -18,15 +18,17 @@ usage()
 
 if [ $# -gt 0 ]; then
     case $1 in
-        -a | --append  ) shift
-                         python app.py append $1
+        -a | --append )  shift
+                         python app.py append $1 $2
                          ;;
 
-        list            ) shift
+        list )           shift
                          python app.py list $1
+                         ;;
 
-        list-all        ) shift
+        list-all )       shift
                          python app.py list-all $1
+    esac
 else
     usage
 fi
