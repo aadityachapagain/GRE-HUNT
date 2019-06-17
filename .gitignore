@@ -1,0 +1,8 @@
+# skips for project checkpints
+.project
+
+#skips for ide
+.idea
+.ipynb_checkpoints
+.vscode
+
