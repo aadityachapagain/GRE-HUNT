@@ -65,22 +65,22 @@ if [ $# -gt 0 ]; then
                                 if [ $# -gt 0 ]; then
                                     append_usage
                                 fi
-                                python app.py append $arg1 $arg2 $arg3 $arg4
+                                python app.py --append $arg1 --meaning $arg2 --example $arg3 --usage $arg4
                              else
-                                 python app.py append $arg1 $arg2 $arg3
+                                 python app.py --append $arg1 --meaning $arg2 --example $arg3
                             fi
 
                          else
-                            python app.py append $arg1 $arg2
+                            python app.py --append $arg1 --meaning $arg2
                          fi
                          ;;
 
         list )           shift
-                         python app.py list $1
+                         python app.py --list $1
                          ;;
 
         list-all )       shift
-                         python app.py list-all $1
+                         python app.py --list-all $1
                          ;;
 
         --help | -h )    usage

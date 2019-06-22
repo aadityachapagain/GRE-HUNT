@@ -6,3 +6,6 @@
 .ipynb_checkpoints
 .vscode
 
+# skip python cached files
+*.pyc
+
