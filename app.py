@@ -15,9 +15,17 @@ parser.add_argument('--example',
 parser.add_argument('--usage', 
                     help= 'usage example of words in different context', default= '', nargs='?')
 
-parser.add_argument('--list')
-parser.add_argument('--list-all')
+parser.add_argument('--list', type= int, 
+                    help= 'return few words revised or  added in last few hours')
+parser.add_argument('--list-all', type = int, 
+                    help= 'return few words in last all the words in 24 hrs')
 
-print(parser.parse_args())
 
-print(sys.argv)
+args = parser.parse_args()
+
+if args.append:
+    insert(args.append, args.meaning, args.example, args.usage)
+
+if args.list:
+    print('listing is in progress . . . ')
+    print('list of last few words are . . . .')
