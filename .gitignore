@@ -8,4 +8,4 @@
 
 # skip python cached files
 *.pyc
-
+core/__pycache__/
