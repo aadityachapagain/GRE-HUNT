@@ -1,1 +1,1 @@
-from .utils import insert
+from .model import insert
