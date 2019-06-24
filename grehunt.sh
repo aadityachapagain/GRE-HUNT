@@ -48,15 +48,14 @@ if [ $# -gt 0 ]; then
                             exit
                          fi
                          shift
-                         if [ $# -gt 0 ]; then
-                            if [ "$1" == "--speech" ]; then
-                                shift
-                                speech="${1// /_}"
-                                shift
-                            else
-                                speech=""
-                            fi
+                        if [ "$1" == "--speech" ]; then
+                            shift
+                            speech="${1// /_}"
+                            shift
+                        else
+                            speech="__"
                         fi
+                        shift
                          if [ $# -gt 0 ]; then
                             arg2="${1// /_}"
                          else
@@ -83,7 +82,7 @@ if [ $# -gt 0 ]; then
                             fi
 
                          else
-                            python app.py --append $arg1 ---speech $speech --meaning $arg2
+                            python app.py --append $arg1 --speech $speech --meaning $arg2
                          fi
                          ;;
 
