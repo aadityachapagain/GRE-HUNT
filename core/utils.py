@@ -1,3 +1,4 @@
+import re
 
 from datetime import datetime
 
@@ -8,7 +9,10 @@ def detokenize(val):
     detokenize the words to represent correct 
     word'''
 
-    return val.replace('_',' ')
+    return ' '.join(re.split('[_]+',val.strip()))
 
 def current_time():
     return datetime.now().strftime('%Y-%m-%d %H:%M')
+
+def tokenize(val):
+    return re.split('[_]+',val.strip())

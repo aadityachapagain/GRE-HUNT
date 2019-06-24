@@ -26,12 +26,15 @@ wrong_command()
 
 append_usage()
 {
-    echo " --apend usage pattern 
+    cat <<EOF 
+
+    usage:
+    --apend usage pattern 
     
-            [--append | -a ] <Word> \"<meaning>\" [optional] --example  \"<write all the example of using given word>\"
-             --usage \"<write the use of word in manykind>\"
-            
-            "
+            [--append | -a ] <Word>  [--speech <speech>] <meaning> [optional] --example  <write all the example of using given word>
+             --usage <write the use of word in manykind>
+
+EOF
 }
 
 if [ $# -gt 0 ]; then
@@ -45,6 +48,15 @@ if [ $# -gt 0 ]; then
                             exit
                          fi
                          shift
+                         if [ $# -gt 0 ]; then
+                            if [ "$1" == "--speech" ]; then
+                                shift
+                                speech="${1// /_}"
+                                shift
+                            else
+                                speech=""
+                            fi
+                        fi
                          if [ $# -gt 0 ]; then
                             arg2="${1// /_}"
                          else
@@ -65,13 +77,13 @@ if [ $# -gt 0 ]; then
                                 if [ $# -gt 0 ]; then
                                     append_usage
                                 fi
-                                python app.py --append $arg1 --meaning $arg2 --example $arg3 --usage $arg4
+                                python app.py --append $arg1 --speech $speech --meaning $arg2 --example $arg3 --usage $arg4
                              else
-                                 python app.py --append $arg1 --meaning $arg2 --example $arg3
+                                 python app.py --append $arg1 --speech $speech --meaning $arg2 --example $arg3
                             fi
 
                          else
-                            python app.py --append $arg1 --meaning $arg2
+                            python app.py --append $arg1 ---speech $speech --meaning $arg2
                          fi
                          ;;
 

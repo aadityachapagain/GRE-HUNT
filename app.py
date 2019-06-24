@@ -8,6 +8,8 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument("--append", 
                     help= 'append the word to database you just learned' , type= str)
+parser.add_argument("--speech",
+                    help= 'append speech to the word', type=str)
 parser.add_argument('--meaning', 
                     help= 'meaning of the word to store in database',)
 parser.add_argument('--example', 
@@ -24,7 +26,7 @@ parser.add_argument('--list-all', type = int,
 args = parser.parse_args()
 
 if args.append:
-    insert(args.append, args.meaning, args.example, args.usage)
+    insert(args.append, args.speech ,args.meaning, args.example, args.usage)
 
 if args.list:
     print('listing is in progress . . . ')
