@@ -1,6 +1,6 @@
 import re
 
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 def detokenize(val):
@@ -19,3 +19,6 @@ def tokenize(val):
 
 def get_date_from_string(str_date):
     return datetime.strptime(str_date, '%Y-%m-%d %H:%M')
+
+def get_time_diff(delta):
+    return timedelta(days=delta)
