@@ -16,3 +16,6 @@ def current_time():
 
 def tokenize(val):
     return re.split('[_]+',val.strip())
+
+def get_date_from_string(str_date):
+    return datetime.strptime(str_date, '%Y-%m-%d %H:%M')
