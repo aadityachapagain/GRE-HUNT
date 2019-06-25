@@ -1,4 +1,5 @@
 import re
+from typing import Dict
 
 from datetime import datetime, timedelta
 
@@ -22,3 +23,22 @@ def get_date_from_string(str_date):
 
 def get_time_diff(delta):
     return timedelta(days=delta)
+
+
+def display_format(doc: Dict):
+    info = ''
+
+    info += f"\n\t word:  {doc['word']}\n"
+
+    if doc['speech']:
+        info += f'\n\t speech: {doc["speech"]}\n'
+    
+    info += f'\n\t meaning: {doc["meaning"]}\n'
+    
+    if doc['usage'].strip():
+        info += f'\n\t example: {doc["usage"]}\n'
+
+    if doc['example'].strip():
+        info += f'\n\t usage: {doc["example"]}\n'
+
+    return info
