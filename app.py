@@ -2,7 +2,7 @@ import os
 import sys
 import argparse
 
-from core import insert
+from core import insert, display
 
 parser = argparse.ArgumentParser()
 
@@ -33,3 +33,5 @@ if args.append:
 if args.list:
     print('listing is in progress . . . ')
     print('list of last few words are . . . .')
+
+    print(display(args.list))

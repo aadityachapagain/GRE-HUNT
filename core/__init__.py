@@ -1,1 +1,1 @@
-from .model import insert
+from .model import insert, display
