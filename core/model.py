@@ -6,3 +6,6 @@ def insert(word : str, speech: str,meaning : str, usage = '', example = ''):
             'usage':detokenize(usage), 'date':current_time()}
 
     vocab.insert_one(doc)
+
+def display(timestamp):
+        pass
