@@ -25,7 +25,6 @@ parser.add_argument('--list-all', type = int,
 
 args = parser.parse_args()
 
-print(args)
 
 if args.append:
     insert(args.append, args.speech ,args.meaning, args.example, args.usage)
@@ -34,4 +33,5 @@ if args.list:
     print('listing is in progress . . . ')
     print('list of last few words are . . . .')
 
-    print(display_format(display(args.list)))
+    for docs in display(args.list):
+        print(display_format(docs))

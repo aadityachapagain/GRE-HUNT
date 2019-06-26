@@ -8,10 +8,7 @@ def insert(word : str, speech: str,meaning : str, usage = '', example = ''):
     vocab.insert_one(doc)
 
 def display(timestamp):
-        items = []
         last_time = get_date_from_string(current_time()) - get_time_diff(timestamp)
         for docs in vocab.find({},{'_id':0}).limit(100):
                 if get_date_from_string(docs['date']) > last_time:
-                        items.append(docs)
-        
-        return docs
+                        yield docs
