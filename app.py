@@ -6,6 +6,7 @@ from core import insert, display, display_format
 
 parser = argparse.ArgumentParser()
 
+print(parser.parse_args())
 parser.add_argument("--append", 
                     help= 'append the word to database you just learned' , type= str)
 parser.add_argument("--speech",
@@ -14,6 +15,11 @@ parser.add_argument('--meaning',
                     help= 'meaning of the word to store in database', type= str)
 parser.add_argument('--example', 
                     help= 'examples on how the given word can be used', default= '', nargs='?')
+
+# remember usage here means synonyms
+# reasons behind putting usage rather than synonyms is its hard to type synonyms than usage
+# always go for simplicity
+
 parser.add_argument('--usage', 
                     help= 'usage example of words in different context', default= '', nargs='?')
 

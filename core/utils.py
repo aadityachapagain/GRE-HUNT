@@ -39,6 +39,6 @@ def display_format(doc: Dict):
         info += f'\n\t example: {doc["usage"]}\n'
 
     if doc['example'].strip():
-        info += f'\n\t usage: {doc["example"]}\n'
+        info += f'\n\t Synonyms: {doc["example"]}\n'
 
     return info

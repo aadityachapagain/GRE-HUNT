@@ -51,7 +51,6 @@ if [ $# -gt 0 ]; then
                         if [ "$1" == "--speech" ]; then
                             shift
                             speech="${1// /_}"
-                            shift
                         else
                             speech="__"
                         fi
