@@ -1,3 +1,8 @@
+'''
+Author: Aaditya Chapagain
+Version: 0.1.1
+'''
+
 import os 
 import sys
 import argparse

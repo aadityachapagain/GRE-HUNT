@@ -3,6 +3,10 @@
 # press enter to continue
 # echo -en "\n Press Enter to continue"
 
+# Author: Aaditya Chapagain
+# Project: Gre-HUNT
+# version: 0.1.1
+
 usage()
 {
     echo "  usage [options] <arguments>
@@ -32,7 +36,7 @@ append_usage()
     --apend usage pattern 
     
             [--append | -a ] <Word>  [--speech <speech>] <meaning> [optional] --example  <write all the example of using given word>
-             --usage <write the use of word in manykind>
+             --usage <write the synonyms or use of word in manykind>
 
 EOF
 }

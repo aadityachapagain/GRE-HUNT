@@ -17,7 +17,6 @@ def insert(word : str, speech: str,meaning : str, usage = '', example = ''):
 		'usage':detokenize(usage)}
 			vocab.update_one({'word':detokenize(word)},adhoc_doc)
 
-		
 	doc = {'word':detokenize(word), 'speech':tokenize(speech),'meaning': detokenize(meaning), 'example':detokenize(example),
 		'usage':detokenize(usage), 'date':current_time()}
 
@@ -29,3 +28,13 @@ def display(timestamp):
 	for docs in vocab.find({},{'_id':0}).limit(100):
 		if get_date_from_string(docs['date']) > last_time:
 			yield docs
+
+
+# get random record from mongodb using aggregation
+# new features in mongodb  , Really Fascinating and so useful
+def get_random_record(num):
+	'''
+	@num: number of random records you want to get
+	'''
+	for docs in vocab.aggregate([{ '$sample': { 'size': num } }]):
+		yield docs
