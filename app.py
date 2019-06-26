@@ -6,7 +6,6 @@ from core import insert, display, display_format
 
 parser = argparse.ArgumentParser()
 
-print(parser.parse_args())
 parser.add_argument("--append", 
                     help= 'append the word to database you just learned' , type= str)
 parser.add_argument("--speech",
