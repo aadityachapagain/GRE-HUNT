@@ -19,7 +19,6 @@ usage()
         list-all                : list all the words added to the database
         random  [num]           : list random words from database
 EOF
-
 }
 
 wrong_command()
@@ -41,6 +40,18 @@ append_usage()
              --usage <write the synonyms or use of word in manykind>
 
 EOF
+}
+/
+operations()
+{
+    local ops="$1"
+    shift
+    if [ $# -gt 0 ]; then
+        python app.py "$ops" $1
+    else
+        usage
+        exit
+    fi
 }
 
 if [ $# -gt 0 ]; then
@@ -92,17 +103,17 @@ if [ $# -gt 0 ]; then
                          ;;
 
         list )           shift
-                         python app.py --list $1
+                         operations "--list" "$1"
                          ;;
 
         list-all )       shift
-                         python app.py --list-all $1
+                         operations "--list-all" "$1"
                          ;;
 
         random )         shift
-                          python app.py --random $1
+                          operations "--random" "$1"
                           ;;
-                          
+
         --help | -h )    usage
                          ;;
         * )              wrong_command
