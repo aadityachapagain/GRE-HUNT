@@ -9,14 +9,16 @@
 
 usage()
 {
-    echo "  usage [options] <arguments>
+    echo <<EOF
+      usage [options] <arguments>
 
         options:
         
-        -a , --append       : append the word into word database
-        list                : list few last words added to the database
-        list-all            : list all the words added to the database
-     "
+        -a , --append           : append the word into word database
+        list    [num]           : list few last words added to the database
+        list-all                : list all the words added to the database
+        random  [num]           : list random words from database
+EOF
 
 }
 
@@ -97,6 +99,10 @@ if [ $# -gt 0 ]; then
                          python app.py --list-all $1
                          ;;
 
+        random )         shift
+                          python app.py --random $1
+                          ;;
+                          
         --help | -h )    usage
                          ;;
         * )              wrong_command

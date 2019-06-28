@@ -7,7 +7,7 @@ import os
 import sys
 import argparse
 
-from core import insert, display, display_format
+from core import insert, display, display_format, get_random_record
 
 parser = argparse.ArgumentParser()
 
@@ -32,6 +32,9 @@ parser.add_argument('--list', type= int,
 parser.add_argument('--list-all', type = int, 
                     help= 'return few words in last all the words in 24 hrs')
 
+parser.add_argument('--random', type = int,
+                    help= 'return random words to revise')
+
 
 args = parser.parse_args()
 
@@ -44,4 +47,10 @@ if args.list:
     print('list of last few words are . . . .')
 
     for docs in display(args.list):
+        print(display_format(docs))
+
+if args.random:
+    print('listing random words  . . . ')
+
+    for docs in get_random_record(args.random):
         print(display_format(docs))
