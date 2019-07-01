@@ -41,7 +41,7 @@ append_usage()
 
 EOF
 }
-/
+
 operations()
 {
     local ops="$1"
