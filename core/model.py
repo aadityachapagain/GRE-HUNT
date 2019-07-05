@@ -16,6 +16,7 @@ def insert(word : str, speech: str,meaning : str, usage = '', example = ''):
 			adhoc_doc = {'speech':tokenize(speech),'meaning': detokenize(meaning), 'example':detokenize(example),
 		'usage':detokenize(usage)}
 			vocab.update_one({'word':detokenize(word)},adhoc_doc)
+		return 
 
 	doc = {'word':detokenize(word), 'speech':tokenize(speech),'meaning': detokenize(meaning), 'example':detokenize(example),
 		'usage':detokenize(usage), 'date':current_time()}
