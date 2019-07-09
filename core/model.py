@@ -15,7 +15,7 @@ def insert(word : str, speech: str,meaning : str, usage = '', example = '', anto
 		if key.lower() == 'y' or key.lower() == 'yes':
 			adhoc_doc = {'speech':tokenize(speech),'meaning': detokenize(meaning), 'example':detokenize(example),
 		'usage':detokenize(usage), 'antonyms': detokenize(antonyms)}
-			vocab.update_one({'word':detokenize(word)},adhoc_doc)
+			vocab.update_one({'word':detokenize(word)}, {'$set':adhoc_doc})
 		return 
 
 	doc = {'word':detokenize(word), 'speech':tokenize(speech),'meaning': detokenize(meaning), 'example':detokenize(example),

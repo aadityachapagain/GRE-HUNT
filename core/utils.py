@@ -41,7 +41,8 @@ def display_format(doc: Dict):
     if doc['example'].strip():
         info += f'\n\t Synonyms: {doc["example"]}\n'
 
-    if doc['antonyms'].strip():
-        info += f'\n\t antonyms: {doc["antonyms"]}\n'
+    if doc.get('antonyms'):
+        if doc['antonyms'].strip():
+            info += f'\n\t antonyms: {doc["antonyms"]}\n'
 
     return info
