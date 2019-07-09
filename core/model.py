@@ -2,7 +2,7 @@ from core.db import vocab
 import re
 from core.utils import detokenize, current_time, tokenize, get_date_from_string, get_time_diff, display_format
 
-def insert(word : str, speech: str,meaning : str, usage = '', example = ''):
+def insert(word : str, speech: str,meaning : str, usage = '', example = '', antonyms = ''):
 
 	# check if the word  already exits in the database
 
@@ -14,12 +14,12 @@ def insert(word : str, speech: str,meaning : str, usage = '', example = ''):
 		key = input(f'If you want to update this word: {detokenize(word)}  in database type \'y\' or \'yes\' and hit Enter :')
 		if key.lower() == 'y' or key.lower() == 'yes':
 			adhoc_doc = {'speech':tokenize(speech),'meaning': detokenize(meaning), 'example':detokenize(example),
-		'usage':detokenize(usage)}
+		'usage':detokenize(usage), 'antonyms': detokenize(antonyms)}
 			vocab.update_one({'word':detokenize(word)},adhoc_doc)
 		return 
 
 	doc = {'word':detokenize(word), 'speech':tokenize(speech),'meaning': detokenize(meaning), 'example':detokenize(example),
-		'usage':detokenize(usage), 'date':current_time()}
+		'usage':detokenize(usage), 'date':current_time(), 'antonyms': detokenize(antonyms)}
 
 	vocab.insert_one(doc)
 

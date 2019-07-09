@@ -27,6 +27,10 @@ parser.add_argument('--example',
 parser.add_argument('--usage', 
                     help= 'usage example of words in different context', default= '', nargs='?')
 
+parser.add_argument('--antonyms', 
+                    help= 'antonyms of word', default= '', nargs='?')
+
+
 parser.add_argument('--list', type= int, 
                     help= 'return few words revised or  added in last few hours')
 parser.add_argument('--list-all', type = int, 
@@ -40,7 +44,7 @@ args = parser.parse_args()
 
 
 if args.append:
-    insert(args.append, args.speech ,args.meaning, args.example, args.usage)
+    insert(args.append, args.speech ,args.meaning, args.example, args.usage, args.antonyms)
 
 if args.list:
     print('listing is in progress . . . ')

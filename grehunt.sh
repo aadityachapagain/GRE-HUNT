@@ -89,10 +89,19 @@ if [ $# -gt 0 ]; then
                                 shift
                                 arg4="${1// /_}"
                                 shift
-                                if [ $# -gt 0 ]; then
-                                    append_usage
+
+                                if [ "$1" == "--antonyms" ]; then
+                                    shift
+                                    arg5="${1// /_}"
+                                    shift
+                                    python app.py --append $arg1 --speech $speech --meaning $arg2 --example $arg3 --usage $arg4 --antonyms $arg5
+                                else
+
+                                    if [ $# -gt 0 ]; then
+                                        append_usage
+                                    fi
+                                    python app.py --append $arg1 --speech $speech --meaning $arg2 --example $arg3 --usage $arg4
                                 fi
-                                python app.py --append $arg1 --speech $speech --meaning $arg2 --example $arg3 --usage $arg4
                              else
                                  python app.py --append $arg1 --speech $speech --meaning $arg2 --example $arg3
                             fi
