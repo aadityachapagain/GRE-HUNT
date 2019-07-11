@@ -10,3 +10,12 @@ ICON_PATH = join(DATA_DIR, 'icon.png')
 MUSIC_PATH = join(DATA_DIR,'alert.ogg')
 
 APP_NAME = 'GRE-HUNT'
+
+APP_DESC = '''
+    Hello,
+
+    I think its time you better revise the words in database or
+    may be update database with new words.
+
+    Bonjour !
+'''

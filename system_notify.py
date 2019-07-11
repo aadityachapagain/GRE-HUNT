@@ -7,8 +7,7 @@ import json
 import gi
 
 # project packages
-from config.setting import ICON_PATH, MUSIC_PATH, APP_NAME
-from core import get_random_record, display_format
+from config.setting import ICON_PATH, MUSIC_PATH, APP_NAME, APP_DESC
 
 gi.require_version('Notify', '0.7')
 from gi.repository import Notify
@@ -35,7 +34,7 @@ def main():
     Notify.init('never kill your time')
     image = GdkPixbuf.Pixbuf.new_from_file(f'{ICON_PATH}')
     for docs in get_random_record(1):
-        showNotification(APP_NAME, display_format(docs), image)
+        showNotification(APP_NAME, APP_DESC, image)
 
 if __name__ == '__main__':
         main()

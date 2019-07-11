@@ -15,7 +15,7 @@ END
 )
 
 while true; do
-    notify-send "Revision" "$description" --urgency="low" --expire-time=4
+    python system_notify.py
 
     sleep $(( 3600*2 ))
 done
