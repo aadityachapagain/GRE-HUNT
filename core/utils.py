@@ -28,7 +28,7 @@ def get_time_diff(delta):
 def display_format(doc: Dict):
     info = ''
 
-    info += f"\t word:  {doc['word']}\n"
+    info += f"\n\t word:  {doc['word']}\n"
 
     if doc['speech']:
         info += f'\n\t speech: {doc["speech"]}\n'

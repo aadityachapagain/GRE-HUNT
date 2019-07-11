@@ -15,7 +15,9 @@ END
 )
 
 while true; do
-    python system_notify.py
-
+    python3 system_notify.py
+    if [ $? -ne 0 ]; then
+        exit
+    fi
     sleep $(( 3600*2 ))
 done

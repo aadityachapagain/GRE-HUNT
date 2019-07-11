@@ -33,8 +33,7 @@ def main():
     now = datetime.datetime.now()
     Notify.init('never kill your time')
     image = GdkPixbuf.Pixbuf.new_from_file(f'{ICON_PATH}')
-    for docs in get_random_record(1):
-        showNotification(APP_NAME, APP_DESC, image)
+    showNotification(APP_NAME, APP_DESC, image)
 
 if __name__ == '__main__':
         main()
