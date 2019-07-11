@@ -17,5 +17,5 @@ END
 while true; do
     notify-send "Revision" "$description" --urgency="low" --expire-time=4
 
-    sleep $(( 3600*4 ))
+    sleep $(( 3600*2 ))
 done
