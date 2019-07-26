@@ -46,3 +46,26 @@ def display_format(doc: Dict):
             info += f'\n\t antonyms: {doc["antonyms"]}\n'
 
     return info
+
+
+def display_to_shell_extension(doc: Dict):
+    info = 'Vocab-it\n---'
+
+    info += f"\n--{doc['word']} | color=blue"
+
+    if doc['speech']:
+        info += f'\n--\t {doc["speech"]}\n'
+
+    info += f'\n--{doc["meaning"]} | color=red \n'
+    
+    if doc['usage'].strip():
+        info += f'\n--example: {doc["usage"]} | color=orange \n'
+
+    if doc['example'].strip():
+        info += f'\n--Synonyms: {doc["example"]} | color=red \n'
+
+    if doc.get('antonyms'):
+        if doc['antonyms'].strip():
+            info += f'\n--antonyms: {doc["antonyms"]}\n'
+
+    return info

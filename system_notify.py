@@ -31,7 +31,7 @@ def showNotification(title, body, image):
 
 def main():
     now = datetime.datetime.now()
-    Notify.init('never kill your time')
+    Notify.init('GRE-Notify')
     image = GdkPixbuf.Pixbuf.new_from_file(f'{ICON_PATH}')
     showNotification(APP_NAME, APP_DESC, image)
 
