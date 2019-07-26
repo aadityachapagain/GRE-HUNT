@@ -1,6 +1,6 @@
-from core.db import vocab
+from app.core.db import vocab
 import re
-from core.utils import detokenize, current_time, tokenize, get_date_from_string, get_time_diff, display_format
+from app.core.utils import detokenize, current_time, tokenize, get_date_from_string, get_time_diff, display_format
 
 def insert(word : str, speech: str,meaning : str, usage = '', example = '', antonyms = ''):
 

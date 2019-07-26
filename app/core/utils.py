@@ -49,23 +49,25 @@ def display_format(doc: Dict):
 
 
 def display_to_shell_extension(doc: Dict):
-    info = 'Vocab-it\n---'
-
-    info += f"\n--{doc['word']} | color=blue"
+    info = ''
+    print(f'{doc["word"]} | size=15')
+    print(f"--Phrase:\t{doc['word']} | color=yellow")
 
     if doc['speech']:
-        info += f'\n--\t {doc["speech"]}\n'
-
-    info += f'\n--{doc["meaning"]} | color=red \n'
+        info += f'--Speech:'
+        info += f'\t {" ".join(doc["speech"])}\n'
+    
+    info += f'--Meaning:'
+    info += f'\t{doc["meaning"]} | color=orange \n'
     
     if doc['usage'].strip():
-        info += f'\n--example: {doc["usage"]} | color=orange \n'
+        info += f'\n--example:\t{doc["usage"]} | color=green \n'
 
     if doc['example'].strip():
-        info += f'\n--Synonyms: {doc["example"]} | color=red \n'
+        info += f'\n--Synonyms:\t{doc["example"]} | color=orange \n'
 
     if doc.get('antonyms'):
         if doc['antonyms'].strip():
-            info += f'\n--antonyms: {doc["antonyms"]}\n'
+            info += f'\n--antonyms:\t{doc["antonyms"]}\n'
 
-    return info
+    print(info)

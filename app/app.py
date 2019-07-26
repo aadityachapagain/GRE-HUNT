@@ -7,7 +7,7 @@ import os
 import sys
 import argparse
 
-from core import insert, display, display_format, get_random_record
+from .core import insert, display, display_format, get_random_record
 
 parser = argparse.ArgumentParser()
 
