@@ -47,7 +47,7 @@ operations()
     local ops="$1"
     shift
     if [ $# -gt 0 ]; then
-        python3 app.py "$ops" $1
+        python3 -m app.app "$ops" $1
     else
         usage
         exit
@@ -94,20 +94,20 @@ if [ $# -gt 0 ]; then
                                     shift
                                     arg5="${1// /_}"
                                     shift
-                                    python3 app.py --append $arg1 --speech $speech --meaning $arg2 --example $arg3 --usage $arg4 --antonyms $arg5
+                                    python3 -m app.app --append $arg1 --speech $speech --meaning $arg2 --example $arg3 --usage $arg4 --antonyms $arg5
                                 else
 
                                     if [ $# -gt 0 ]; then
                                         append_usage
                                     fi
-                                    python3 app.py --append $arg1 --speech $speech --meaning $arg2 --example $arg3 --usage $arg4
+                                    python3 -m app.app --append $arg1 --speech $speech --meaning $arg2 --example $arg3 --usage $arg4
                                 fi
                              else
-                                 python3 app.py --append $arg1 --speech $speech --meaning $arg2 --example $arg3
+                                 python3 -m app.app --append $arg1 --speech $speech --meaning $arg2 --example $arg3
                             fi
 
                          else
-                            python3 app.py --append $arg1 --speech $speech --meaning $arg2
+                            python3 -m app.app --append $arg1 --speech $speech --meaning $arg2
                          fi
                          ;;
 
