@@ -7,7 +7,7 @@ import json
 import gi
 
 # project packages
-from config.setting import ICON_PATH, MUSIC_PATH, APP_NAME, APP_DESC
+from bin.config.setting import ICON_PATH, MUSIC_PATH, APP_NAME, APP_DESC
 
 gi.require_version('Notify', '0.7')
 from gi.repository import Notify
