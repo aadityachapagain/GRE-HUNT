@@ -1,0 +1,50 @@
+# Author: Aaditya Chapagian
+# email: chapagain.aaditya@gmail.com
+# python: 3.6
+# version: 0.1.1
+# release: 0.1
+
+
+project_info()
+{
+    echo <<EOF
+
+    Author: Aaditya Chapagian
+    email: chapagain.aaditya@gmail.com
+    python: 3.6
+    version: 0.1.1
+    release: 0.1
+EOF
+}
+
+project_info
+
+
+# store current directory in variable
+current_directory=`pwd`
+
+cd $HOME
+git clone https://github.com/p-e-w/argos.git
+sudo cp -r ~/argos/argos@pew.worldwidemann.com ~/.local/share/gnome-shell/extensions
+
+# Now compy everything to the argos folder inide config
+cd $current_directory
+cp -r * ~/.config/argos
+
+# Make some file executable and some unexecutable
+cd ~/.config/argos
+chmod +x gre_app.2h+.py
+rm install
+chmod -x promt.sh
+chmod -x system_notify.py
+
+# Now restart the GNOME SHELL using keyboard shortcut
+# alt + f2 and type r and press Enter
+# Wait few sec till this will work
+# and you also need to enable argos in gnome tweak tool
+# you must have mongodb for this to work and use mongo db to run on startup
+
+# Run system_notify.py in startup
+sudo printf "\n" >> ~/.bashrc
+sudo printf "# For Gre-Hunt App to run in start up" >> ~/.bashrc
+sudo printf "python3 system_notify.py" >> ~/.bashrc
